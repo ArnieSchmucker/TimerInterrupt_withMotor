@@ -13,6 +13,7 @@ LiquidCrystal_I2C lcd(0x27, 2, 16);
 #define en1Pin 5
 #define dir1Pin 7
 #define dir2Pin 8
+#define encBPin 3
 
 volatile bool ledStatus = false;
 bool prevStatus = false;
@@ -36,7 +37,7 @@ ISR(TIMER1_COMPA_vect)
 
 void isr_1() {
   counts++;
-  //dir = digitalRead(encB);
+  dir = digitalRead(encBPin);
 }
 
 void setup()
